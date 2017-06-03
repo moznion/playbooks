@@ -74,5 +74,6 @@
 - name: Start mackrel-agent
   systemd:
     name: mackerel-agent
+    enabled: yes
     state: started
 
