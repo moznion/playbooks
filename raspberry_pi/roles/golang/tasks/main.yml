@@ -1,0 +1,13 @@
+---
+- name: Download golang archive
+  get_url:
+    url: https://storage.googleapis.com/golang/go{{ go_version }}.linux-armv6l.tar.gz
+    dest: /tmp/go{{ go_version }}.linux-armv6l.tar.gz
+    sha256sum: "{{ go_sha256_checksum }}"
+
+- name: Unpack archive and install
+  unarchive:
+    src: /tmp/go{{ go_version }}.linux-armv6l.tar.gz
+    dest: /usr/local
+    remote_src: True
+

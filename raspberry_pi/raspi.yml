@@ -1,0 +1,11 @@
+---
+- hosts: pies
+  user: pi
+  become: yes
+  vars:
+    mackerel_api_key: "{{ lookup('env', 'MACKEREL_APIKEY') }}"
+  roles:
+    - build_tools
+    - golang
+    - mackerel-agent
+

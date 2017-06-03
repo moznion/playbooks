@@ -1,0 +1,14 @@
+apikey = "{{ mackerel_api_key }}"
+pidfile = "/var/run/mackerel-agent.pid"
+root = "/var/lib/mackerel-agent"
+
+[host_status]
+on_start = "working"
+on_stop  = "poweroff"
+
+[plugin.metrics.linux]
+command = "/usr/local/mackerel-agent/plugin/mackerel-plugin-linux"
+[plugin.metrics.uptime]
+command = "/usr/local/mackerel-agent/plugin/mackerel-plugin-uptime"
+[plugin.metrics.inode]
+command = "/usr/local/mackerel-agent/plugin/mackerel-plugin-inode"
